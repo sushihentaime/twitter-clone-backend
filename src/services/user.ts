@@ -67,3 +67,16 @@ export const getUserByUserId = async (userId: string) => {
 	}
 	return user;
 };
+
+export const search = async (username: string) => {
+	const users = await User.find({
+		username: { $regex: new RegExp(username, 'i') },
+	});
+	if (users.length === 0) {
+		throw new AppError({
+			httpCode: HttpCode.BAD_REQUEST,
+			message: 'No relevant users found',
+		});
+	}
+	return users;
+};

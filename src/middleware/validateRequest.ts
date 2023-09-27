@@ -24,9 +24,7 @@ const validateRequest =
 			next();
 		} catch (error) {
 			if (error instanceof ZodError) {
-				const errorMessages = error.errors.map(
-					(errorMessage) => errorMessage.message
-				);
+				const errorMessages = error.errors.map((errorMessage) => errorMessage);
 				throw new AppError({
 					httpCode: HttpCode.BAD_REQUEST,
 					message: JSON.stringify(errorMessages),

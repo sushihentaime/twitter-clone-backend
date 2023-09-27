@@ -12,6 +12,7 @@ import passport from 'passport';
 import authRouter from './routes/auth';
 import postRouter from './routes/post';
 import profileRouter from './routes/profile';
+import userRouter from './routes/user';
 import './utils/db';
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/posts', postRouter);
 app.use('/api/v1/profiles', profileRouter);
+app.use('/api/v1/users', userRouter);
 
 app.use(handleNotFound);
 app.use(errorConverter);

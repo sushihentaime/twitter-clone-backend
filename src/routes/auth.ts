@@ -25,7 +25,7 @@ authRouter.route('/login').post(
 	login
 );
 
-authRouter.route('/refresh').post(tokenAuthentication, refreshAccessToken);
+authRouter.route('/refresh').post(refreshAccessToken);
 
 authRouter.route('/logout').post(tokenAuthentication, logout);
 
